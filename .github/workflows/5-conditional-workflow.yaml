@@ -1,0 +1,22 @@
+# Workflow name (GitHub Actions UI তে দেখাবে)
+name: Backend Workflow
+
+# Trigger: dev branch এ push হলে run হবে
+# শুধু backend folder change হলে workflow run হবে
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - "backend/**" # only backend changes
+      # - "frontend/**" # only frontend changes
+
+jobs:
+  backend:
+    # Runner machine (Ubuntu Linux VM)
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step: backend change detect & run
+      - name: Run Backend
+        run: echo "Backend Changed 🚀"
