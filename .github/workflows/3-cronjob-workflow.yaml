@@ -1,0 +1,19 @@
+# Workflow name
+name: Cron Job Workflow
+
+# Trigger: runs automatically on schedule
+on:
+  schedule:
+    # Every 5 minutes (UTC time)
+    - cron: "*/5 * * * *"
+
+jobs:
+  cron-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Print message
+      - name: Run Cron Job
+        run: |
+          echo "Cron Job Running ⏰"
+          date
