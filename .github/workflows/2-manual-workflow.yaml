@@ -1,0 +1,33 @@
+# Workflow name (GitHub Actions UI তে এই নাম দেখাবে)
+name: Manual Trigger Workflow
+
+# Trigger event
+# workflow_dispatch মানে: এটা manually GitHub UI থেকে run করা যাবে
+on:
+  workflow_dispatch:
+
+# Jobs section (workflow execution unit)
+jobs:
+  manual-test:
+    # Job name (UI তে readable name)
+    name: Print Manual Message
+
+    # Runner machine
+    runs-on: macos-latest
+
+    # Steps = ছোট ছোট কাজগুলো যা sequentially run হবে
+    steps:
+      # Step 1: Start message
+      - name: Start Workflow
+        run: echo "Starting Manual Workflow..."
+
+      # Step 2: Main output
+      - name: Print Manual Message
+        run: |
+          echo "===================="
+          echo "Manual Triggered 🚀"
+          echo "===================="
+
+      # Step 3: End message
+      - name: Finish Workflow
+        run: echo "Workflow Completed ✅"
