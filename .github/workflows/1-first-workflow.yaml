@@ -2,8 +2,11 @@
 name: First Workflow
 
 # Trigger event
-# মানে: যখনই code push হবে, তখন এই workflow রান করবে
-on: [push]
+# মানে: যখন main branch এ code push হবে, তখন workflow run হবে
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   # একটি job তৈরি করা হয়েছে যার নাম first-workflow
