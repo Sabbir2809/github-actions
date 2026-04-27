@@ -1,11 +1,17 @@
+# Workflow name (GitHub Actions tab এ এই নাম দেখাবে)
 name: First Workflow
 
+# Trigger event
+# মানে: যখনই code push হবে, তখন এই workflow রান করবে
 on: [push]
 
 jobs:
+  # একটি job তৈরি করা হয়েছে যার নাম first-workflow
   first-workflow:
+    # কোন machine এ run হবে (runner)
     runs-on: ubuntu-latest
 
     steps:
+      # প্রথম step: simple message print করা
       - name: First Step
-        run: echo "Hello, GitHub Actions"
+        run: echo "Hello, GitHub Actions 🚀"
