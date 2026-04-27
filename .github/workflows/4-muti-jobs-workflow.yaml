@@ -1,0 +1,51 @@
+# Workflow name (GitHub Actions UI তে দেখা যাবে)
+name: Multi Jobs Workflow
+
+# Trigger: এটা manually GitHub UI থেকে run করা যাবে
+on:
+  workflow_dispatch:
+
+jobs:
+  # ==========================
+  # Job 1: Test Stage
+  # ==========================
+  first-job:
+    name: Test Job
+    runs-on: ubuntu-latest
+
+    steps:
+      # Testing step
+      - name: Run Tests
+        run: echo "Test Done ✅"
+
+  # ==========================
+  # Job 2: Build Stage
+  # Runs after Test Job
+  # ==========================
+  second-job:
+    name: Build Job
+    runs-on: ubuntu-latest
+
+    # dependency: Test must pass first
+    needs: first-job
+
+    steps:
+      # Build step
+      - name: Build Project
+        run: echo "Build Done 🏗️"
+
+  # ==========================
+  # Job 3: Deploy Stage
+  # Runs after Test + Build
+  # ==========================
+  third-job:
+    name: Deploy Job
+    runs-on: ubuntu-latest
+
+    # dependency chain
+    needs: [first-job, second-job]
+
+    steps:
+      # Deploy step
+      - name: Deploy Application
+        run: echo "Deployment Successful 🚀"
