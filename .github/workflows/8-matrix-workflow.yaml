@@ -1,0 +1,34 @@
+# Workflow name
+name: Test Multiple Node Versions
+
+# Manual trigger
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # Same test runs on multiple Node versions
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+
+    steps:
+      # Project code checkout
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Setup Node.js version
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Install dependencies
+      - name: Install Packages
+        run: npm install
+
+      # Run tests
+      - name: Run Tests
+        run: npm test
