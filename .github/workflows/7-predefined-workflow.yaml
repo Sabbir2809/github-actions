@@ -1,11 +1,26 @@
+# Workflow name (GitHub Actions UI তে দেখাবে)
 name: Predefined Workflow
 
+# Manual trigger (GitHub UI থেকে run করা যাবে)
 on:
   workflow_dispatch:
 
 jobs:
   predefined-workflow:
+    # Runner machine (Ubuntu VM)
     runs-on: ubuntu-latest
+
     steps:
-      - name: Node.js Version
+      # Default Node.js version check
+      - name: Check Default Node.js Version
+        run: node -v
+
+      # Predefined action ব্যবহার করে Node.js setup
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      # Updated Node.js version check
+      - name: Check Updated Node.js Version
         run: node -v
