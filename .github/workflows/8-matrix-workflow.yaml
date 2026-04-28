@@ -1,5 +1,5 @@
 # Workflow name
-name: Matrix Workflow - Test Multiple Node Versions
+name: Matrix Workflow
 
 # Manual trigger
 on:
@@ -7,28 +7,21 @@ on:
 
 jobs:
   test:
+    # Runner machine
     runs-on: ubuntu-latest
 
-    # Same test runs on multiple Node versions
+    # Matrix strategy = same job multiple times run হবে
     strategy:
       matrix:
         node-version: [18, 20, 22]
 
     steps:
-      # Project code checkout
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      # Setup Node.js version
+      # Setup Node.js version from matrix
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
 
-      # Install dependencies
-      - name: Install Packages
-        run: npm install
-
-      # Run tests
-      - name: Run Tests
-        run: npm test
+      # Check current version
+      - name: Show Node.js Version
+        run: node -v
