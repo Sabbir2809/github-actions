@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
       "Access-Control-Allow-Origin": "*",
     });
 
-    res.end("Server Up and Running");
+    res.end("Server up and running...");
   } else {
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("Route Not Found ❌");
