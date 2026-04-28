@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
     res.end(
       JSON.stringify({
         success: true,
-        message: "Get All Topics",
+        message: "Get GitHub Actions Learn Topics",
         data: TOPICS,
       }),
     );
