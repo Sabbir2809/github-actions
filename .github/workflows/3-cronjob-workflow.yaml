@@ -1,19 +1,22 @@
-# Workflow name
-name: Cron Job Workflow
+# Workflow name (GitHub UI তে দেখাবে)
+name: Happy New Year Workflow 🎉
 
-# Trigger: runs automatically on schedule
+# Trigger: প্রতি বছর January 1 তারিখে run হবে
 on:
   schedule:
-    # Every 5 minutes (UTC time)
-    - cron: "*/5 * * * *"
+    - cron: "0 0 1 1 *" # Jan 1, 00:00 UTC
 
 jobs:
-  cron-job:
+  new-year-job:
     runs-on: ubuntu-latest
 
     steps:
-      # Print message
-      - name: Run Cron Job
+      # Step 1: New Year message
+      - name: Happy New Year Message
+        run: echo "🎉 Happy New Year! Wishing you success, happiness & growth 🚀"
+
+      # Step 2: Fun output
+      - name: Celebration
         run: |
-          echo "Cron Job Running ⏰"
-          date
+          echo "✨ Year = $(date +%Y)"
+          echo "🚀 Keep Learning. Keep Building. Keep Growing."
