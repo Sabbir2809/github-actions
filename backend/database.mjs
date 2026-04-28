@@ -1,4 +1,4 @@
-export const topics = [
+export const TOPICS = [
   {
     title: "What is GitHub Actions",
     desc: "GitHub Actions হলো automation tool যা CI/CD pipeline run করে.",

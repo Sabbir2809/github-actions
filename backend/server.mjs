@@ -1,5 +1,5 @@
 import http from "node:http";
-import { topics } from "./database.mjs";
+import { TOPICS } from "./database.mjs";
 
 const port = 8080;
 
@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
       JSON.stringify({
         success: true,
         message: "Get All Topics",
-        data: topics,
+        data: TOPICS,
       }),
     );
   } else if (req.url === "/" && req.method === "GET") {

@@ -12,27 +12,29 @@ on:
       # - "frontend/**" # only frontend changes
 
 jobs:
-  backend:
-    # Runner machine (Ubuntu VM)
-    runs-on: ubuntu-latest
+  call-reusable:
+    uses: .github/workflows/10-reusable-workflow.yaml
 
-    steps:
-      # Step 1: Code info print
-      - name: Detect Backend Change
-        run: echo "Backend code changed 🚀"
+  # backend:
+  #   # Runner machine (Ubuntu VM)
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # Step 1: Code info print
+  #     - name: Detect Backend Change
+  #       run: echo "Backend code changed 🚀"
 
-      # Step 2: Simulate backend install
-      - name: Install Dependencies
-        run: echo "npm install (simulated)"
+  #     # Step 2: Simulate backend install
+  #     - name: Install Dependencies
+  #       run: echo "npm install (simulated)"
 
-      # Step 3: Simulate test run
-      - name: Run Tests
-        run: echo "npm test (simulated)"
+  #     # Step 3: Simulate test run
+  #     - name: Run Tests
+  #       run: echo "npm test (simulated)"
 
-      # Step 4: Simulate build
-      - name: Build Project
-        run: echo "npm run build (simulated)"
+  #     # Step 4: Simulate build
+  #     - name: Build Project
+  #       run: echo "npm run build (simulated)"
 
-      # Final Step
-      - name: Finish
-        run: echo "Backend CI Completed ✅"
+  #     # Final Step
+  #     - name: Finish
+  #       run: echo "Backend CI Completed ✅"
