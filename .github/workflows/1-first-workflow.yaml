@@ -4,9 +4,10 @@ name: First Workflow
 # Trigger event
 # মানে: যখন main branch এ code push হবে, তখন workflow run হবে
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch
 
 jobs:
   # একটি job তৈরি করা হয়েছে যার নাম first-workflow
