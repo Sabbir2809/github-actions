@@ -1,5 +1,5 @@
 # Workflow name (GitHub Actions UI তে দেখাবে)
-name: Backend Workflow
+name: Conditional Workflow
 
 # Trigger: dev branch এ push হলে run হবে
 # শুধু backend folder change হলে workflow run হবে
