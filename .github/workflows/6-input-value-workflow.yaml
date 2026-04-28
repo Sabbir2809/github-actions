@@ -1,0 +1,25 @@
+# Workflow name (GitHub Actions UI তে দেখাবে)
+name: Input Value Workflow
+
+# Manual trigger (GitHub UI থেকে run করা যাবে)
+on:
+  workflow_dispatch:
+    # Inputs = user থেকে value নেওয়া
+    inputs:
+      username:
+        # Input field description
+        description: "Enter your name"
+        # mandatory কিনা
+        required: true
+        # default value
+        default: "Developer"
+
+jobs:
+  show-input:
+    # Runner machine (Ubuntu VM)
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step: input value show করা
+      - name: Print Input Value
+        run: echo "Hello ${{ github.event.inputs.username }} 🚀"
