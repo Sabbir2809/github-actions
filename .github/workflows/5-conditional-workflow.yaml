@@ -1,22 +1,38 @@
 # Workflow name (GitHub Actions UI তে দেখাবে)
 name: Conditional Workflow
 
-# Trigger: dev branch এ push হলে run হবে
+# Trigger: main branch এ push হলে run হবে
 # শুধু backend folder change হলে workflow run হবে
 on:
   push:
     branches:
-      - dev
+      - main
     paths:
       - "backend/**" # only backend changes
       # - "frontend/**" # only frontend changes
 
 jobs:
   backend:
-    # Runner machine (Ubuntu Linux VM)
+    # Runner machine (Ubuntu VM)
     runs-on: ubuntu-latest
 
     steps:
-      # Step: backend change detect & run
-      - name: Run Backend
-        run: echo "Backend Changed 🚀"
+      # Step 1: Code info print
+      - name: Detect Backend Change
+        run: echo "Backend code changed 🚀"
+
+      # Step 2: Simulate backend install
+      - name: Install Dependencies
+        run: echo "npm install (simulated)"
+
+      # Step 3: Simulate test run
+      - name: Run Tests
+        run: echo "npm test (simulated)"
+
+      # Step 4: Simulate build
+      - name: Build Project
+        run: echo "npm run build (simulated)"
+
+      # Final Step
+      - name: Finish
+        run: echo "Backend CI Completed ✅"
