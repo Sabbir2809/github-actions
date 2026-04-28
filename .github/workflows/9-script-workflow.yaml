@@ -1,0 +1,30 @@
+# Workflow name
+name: Python Script Workflow
+
+# Manual trigger
+on:
+  workflow_dispatch:
+
+jobs:
+  python-workflow:
+    # Runner machine
+    runs-on: ubuntu-latest
+
+    steps:
+      # Repository code checkout
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Check Python version
+      - name: Check Python Version
+        run: python --version
+
+      # Run Python script
+      - name: Run Python Script
+        run: python app.py
