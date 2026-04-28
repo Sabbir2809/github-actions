@@ -1,5 +1,5 @@
 # Workflow name
-name: Test Multiple Node Versions
+name: Matrix Workflow - Test Multiple Node Versions
 
 # Manual trigger
 on:
