@@ -5,15 +5,15 @@ name: Conditional Workflow
 # শুধু backend folder change হলে workflow run হবে
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
     paths:
       - "backend/**" # only backend changes
       # - "frontend/**" # only frontend changes
 
 jobs:
-  call-reusable:
-    uses: .github/workflows/10-reusable-workflow.yaml
+  conditional-workflow:
+    uses: sabbir2809/github-actions/.github/workflows/10-reusable-workflow.yaml
 
   # backend:
   #   # Runner machine (Ubuntu VM)

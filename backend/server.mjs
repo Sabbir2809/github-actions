@@ -1,5 +1,5 @@
 import http from "node:http";
-import { TOPICS } from "./database.mjs";
+import { TOPICS } from "./data.mjs";
 
 const port = 8080;
 
